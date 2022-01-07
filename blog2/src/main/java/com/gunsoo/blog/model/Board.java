@@ -41,7 +41,6 @@ public class Board {
 	@Lob //대용량 데이터 
 	private String content; //내용 => 섬머노트 라이브러리를 사용해서 길이가 굉장히 김
 	
-	@ColumnDefault("0")//int 형이기 때문에 ''가 필요없음 
 	private int count;//조회수 
 	
 	@ManyToOne(fetch = FetchType.EAGER) // Many -> Board, User -> One , //EAGER전략 -> Board를 select하면 user를 가져올께 
