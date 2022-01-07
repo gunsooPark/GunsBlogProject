@@ -16,14 +16,14 @@ import com.gunsoo.blog.model.User;
 import com.gunsoo.blog.service.UserService;
 
 @RestController
-@RequestMapping("/api/*")
+@RequestMapping("/auth/*")
 public class UserApiController {
 
 	@Autowired
 	private UserService userService;
 	
 	//회원가입 
-	@PostMapping("/user")
+	@PostMapping("/joinProc")
 	public ResponseEntity<Integer>  save(@RequestBody User user) {
 		System.out.println("UserApiController : save 호출 ");
 		user.setRole(RoleType.USER); //권한부여 
@@ -32,15 +32,6 @@ public class UserApiController {
 		return new ResponseEntity<Integer>(1, HttpStatus.OK);
 	}
 	
-	//정통적인 로그인
-	/*
-	 * @PostMapping("/user/login") public ResponseEntity<Integer> login(@RequestBody
-	 * User user, HttpSession session){
-	 * System.out.println("UserApiController : login 호출 "); User principal =
-	 * userService.login(user); if(principal != null) {
-	 * session.setAttribute("principal", principal); } return new
-	 * ResponseEntity<Integer>(1, HttpStatus.OK); }
-	 */
 	
 	
 }
