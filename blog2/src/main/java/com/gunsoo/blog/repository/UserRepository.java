@@ -1,5 +1,7 @@
 package com.gunsoo.blog.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -12,7 +14,8 @@ import com.gunsoo.blog.model.User;
 public interface UserRepository extends JpaRepository<User, Integer> {// 해당 user테이블을 관리하는 JpaRepository이다. 주키는 Integer형이다.
 	// JpaRepository -> 기본적인 crud는 되어있다.
 
-	
+	//SELECT * FROM user WHERE username = ?
+	Optional<User> findByUsername(String username);
 
 }
 
